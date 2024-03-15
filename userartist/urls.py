@@ -39,6 +39,5 @@ urlpatterns = [
     path('userME4/<int:pk>/', views.ProfileDetailsView().as_view, name='user-me1'),
     path('add-comment-to-post/',views.AddCommentToPost.as_view(), name='add-comment-to-post'),
     path('p/<slug:profile_slug>/<slug:comment_slug>/', views.UploadmusicVUE.as_view()),
-    path('p2/<slug:profile_slug>/', views.CategoryVue.as_view()),
     path('', include(router.urls))
 ]

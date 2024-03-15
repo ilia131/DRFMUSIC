@@ -134,11 +134,10 @@ class UuuidView(viewsets.GenericViewSet, mixins.ListModelMixin , mixins.CreateMo
      
      def create(self, request, *args, **kwargs):
         user = request.user
-        post_unique_id = request.data.get('post__unique_id')  # تغییر post__id به unique_id
+        post_unique_id = request.data.get('post__unique_id')  
         serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)
 
-        # اطمینان حاصل کنید که post_unique_id با مقدار برگردانده شده از get_queryset برابر است
         queryset_result = self.get_queryset()
         if queryset_result.exists():
             post_unique_id = queryset_result.first().post
@@ -255,18 +254,7 @@ class AddCommentToPost(generics.CreateAPIView):
  
  
  
-class CategoryVue(APIView):
-    def get_object(self, profile_slug):
-     
-        try:
-            return Profile.objects.get(slug=profile_slug)
-        except Profile.DoesNotExist:
-            raise Http404
-      
-    def get(self, request, profile_slug, format=None):
-        category = self.get_object(profile_slug)
-        serializer = ProfileSerializer(category)
-        return Response(serializer.data) 
+
  
     
     

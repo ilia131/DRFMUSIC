@@ -91,7 +91,7 @@ class Profile(models.Model):
         super().save(*args, **kwargs)
 
     def __str__(self):
-        return f'{self.unique_id}'
+        return f'{self.title}'
     
     def get_image(self):
         if self.image:
