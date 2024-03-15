@@ -25,7 +25,6 @@ from django.db.models import Q
 #Djoser VIEWSET ADD+
 from djoser import views
 from .image import decode_image_from_base64
-# from .track import handle_track_change
 from PIL import Image
 import io
 import base64
